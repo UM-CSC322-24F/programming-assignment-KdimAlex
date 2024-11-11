@@ -1,0 +1,492 @@
+https://github.com/UM-CSC322-24F/programming-assignment-KdimAlex.git
+commit 6a579f5034b5eff3b34d229d1fd0893e39ce4391
+Author: KdimAlex <kim.d.alexandr@gmail.com>
+Date:   Wed Oct 23 21:31:40 2024 -0400
+
+    Project Draft
+---------------------------------------------------------
+Fleet Management
+
+Grade : 15.5/20
+
+Welcome Message                 0.5/0.5
+Menu                            1.0/1.0
+Print Sorted                    0.0/1.5
+Add                             1.0/1.0
+Remove                          1.0/1.0
+Payment                         1.0/1.0
+Monthly                         1.0/1.0
+Exit Message                    0.5/0.5
+#defines                        0.5/0.5
+typedefs                        0.5/0.5
+Data Structure                  0.5/0.5
+qsort                           0.0/0.5
+Loads from CSV                  2.0/2.0
+Saves To CSV                    1.0/1.0
+Boat names (CI)                 0.5/0.5
+Remove/Payment missing boats    0.5/0.5
+Payment Too High                0.5/0.5
+Check Number of cmd arguments   0.0/0.5
+Test file open/close errors     0.0/0.5
+Test Malloc Errors              0.5/0.5
+Free all memory on Exit         0.5/0.5
+Functions and Parameters        1.0/1.0
+Identifier names                1.0/1.0
+Global Variables (bad)          0.0/1.0
+Formatting                      1.0/1.0
+Commenting                      1.0/1.0
+Anything else ugly              1.0/1.0
+
+Comments : 1. Name of the CSV file is hard-coded
+2. Program somehow is working (bug) with no file loaded
+3. Boat Array is declared as a global variable
+
+---------------------------------------------------------Script started on 2024-11-04 15:47:48-05:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="174" LINES="18"]
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ ./[K[Ks[Kgcc boatManagemen[K[K[Kr.c -o boatMAnager.[K[K[K[K[K[K[Kanager
+[?2004l
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ ./boatManager
+[?2004l
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : . i
+Osita                40' land       C   Owes $1000.07
+Run About            18' storage # 13   Owes $200.50
+Magic                38' trailor 7KZ099   Owes $0.00
+Big Brother          20' slip    # 27   Owes $1200.00
+Moon Glow            30' slip    # 13   Owes $500.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : x
+Exiting the Boat Management System
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ rm BoatData.csv
+[?2004l
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ ./Bo[K[KboatManager
+[?2004l
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : x
+Exiting the Boat Management System
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ ./B[KboatManager BoatData.csv
+[?2004l
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : x
+Exiting the Boat Management System
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ cat[K[K[Kcat BoatData.csv
+[?2004l
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ rm BoatData.csv
+[?2004l
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ cat Boa[K[K[K../BoatData.csv >> Bo[K[K[K[K BoatData.csv
+[?2004l
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ cat ../BoatData.csv > BoatData.csv[19Prm[C[C[C[C[C[C[C[C[C[C[C[C[C[1@cat[C[C[C[C[C[C[C[C[C[C[C[C[C[10@./boatManager[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[?2004l
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1000.07
+Run About            18' storage # 13   Owes $200.50
+Magic                38' trailor 7KZ099   Owes $0.00
+Big Brother          20' slip    # 27   Owes $1200.00
+Moon Glow            30' slip    # 13   Owes $500.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : a
+Please enter the boat data in CSV format: adad
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1000.07
+Run About            18' storage # 13   Owes $200.50
+Magic                38' trailor 7KZ099   Owes $0.00
+Big Brother          20' slip    # 27   Owes $1200.00
+Moon Glow            30' slip    # 13   Owes $500.00
+adad
+                 0' slip    #  0   Owes $0.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : a
+Please enter the boat data in CSV format: Brooks,34,trailor,AAR666,99.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1000.07
+Run About            18' storage # 13   Owes $200.50
+Magic                38' trailor 7KZ099   Owes $0.00
+Big Brother          20' slip    # 27   Owes $1200.00
+Moon Glow            30' slip    # 13   Owes $500.00
+adad
+                 0' slip    #  0   Owes $0.00
+Brooks               34' trailor AAR666   Owes $99.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : m
+Monthly charges updated.
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1560.07
+Run About            18' storage # 13   Owes $402.10
+Magic                38' trailor 7KZ099   Owes $950.00
+Big Brother          20' slip    # 27   Owes $1450.00
+Moon Glow            30' slip    # 13   Owes $875.00
+adad
+                 0' slip    #  0   Owes $0.00
+Brooks               34' trailor AAR666   Owes $949.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : p
+Please enter the boat name: adad
+No boat with that name.
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : p
+Please enter the boat name: Brooks
+Please enter the amount to be paid: 200000
+That is more than the amount owed, $949.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : p
+Please enter the boat name: Brooks
+Please enter the amount to be paid: 20
+Payment processed.
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1560.07
+Run About            18' storage # 13   Owes $402.10
+Magic                38' trailor 7KZ099   Owes $950.00
+Big Brother          20' slip    # 27   Owes $1450.00
+Moon Glow            30' slip    # 13   Owes $875.00
+adad
+                 0' slip    #  0   Owes $0.00
+Brooks               34' trailor AAR666   Owes $929.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : r
+Please enter the boat name: adad
+No boat with that name.
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : r
+Please enter the boat name: Brooks
+Boat removed.
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : x
+Exiting the Boat Management System
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ valgrind ..[K/Boat[K[K[K[KboatManager B[KboatManager[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l
+==9134== Memcheck, a memory error detector
+==9134== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==9134== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==9134== Command: ./boatManager
+==9134== 
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : i
+Osita                40' land       C   Owes $1560.07
+Run About            18' storage # 13   Owes $402.10
+Magic                38' trailor 7KZ099   Owes $950.00
+Big Brother          20' slip    # 27   Owes $1450.00
+Moon Glow            30' slip    # 13   Owes $875.00
+adad
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E8AD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Use of uninitialised value of size 8
+==9134==    at 0x48CC2EB: _itoa_word (_itoa.c:177)
+==9134==    by 0x48E7ABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CC2FC: _itoa_word (_itoa.c:177)
+==9134==    by 0x48E7ABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E85C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E7C05: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CCCB8: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CCCD2: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48C850A: __mpn_extract_double (dbl2mpn.c:56)
+==9134==    by 0x48CCFCE: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48C850F: __mpn_extract_double (dbl2mpn.c:60)
+==9134==    by 0x48CCFCE: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CD9B0: __printf_fp_l (printf_fp.c:978)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CD9EA: __printf_fp_l (printf_fp.c:981)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDA24: __printf_fp_l (printf_fp.c:991)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDA58: round_away (rounding-mode.h:52)
+==9134==    by 0x48CDA58: __printf_fp_l (printf_fp.c:998)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDCD5: __printf_fp_l (printf_fp.c:1166)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDF15: __printf_fp_l (printf_fp.c:1228)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDEFB: __printf_fp_l (printf_fp.c:1230)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48FEE1D: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:782)
+==9134==    by 0x48CE801: __printf_fp_l (printf_fp.c:1254)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Syscall param write(buf) points to uninitialised byte(s)
+==9134==    at 0x4986887: write (write.c:26)
+==9134==    by 0x48FCEEC: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==9134==    by 0x48FE9E0: new_do_write (fileops.c:448)
+==9134==    by 0x48FE9E0: _IO_new_do_write (fileops.c:425)
+==9134==    by 0x48FE9E0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==9134==    by 0x48FD6D4: _IO_new_file_xsputn (fileops.c:1243)
+==9134==    by 0x48FD6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==9134==    by 0x48E7FC9: outstring_func (vfprintf-internal.c:239)
+==9134==    by 0x48E7FC9: __vfprintf_internal (vfprintf-internal.c:1593)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==  Address 0x4a9f95b is 43 bytes inside a block of size 1,024 alloc'd
+==9134==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9134==    by 0x48F0BA3: _IO_file_doallocate (filedoalloc.c:101)
+==9134==    by 0x48FFCDF: _IO_doallocbuf (genops.c:347)
+==9134==    by 0x48FEF5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==9134==    by 0x48FD6D4: _IO_new_file_xsputn (fileops.c:1243)
+==9134==    by 0x48FD6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==9134==    by 0x48E714C: outstring_func (vfprintf-internal.c:239)
+==9134==    by 0x48E714C: __vfprintf_internal (vfprintf-internal.c:1263)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x10A32F: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+                 0' slip    #  0   Owes $0.00
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x484ED19: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9134==    by 0x48E8D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==9134==    by 0x48D279E: printf (printf.c:33)
+==9134==    by 0x109882: printInventory (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A39C: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+                      0' slip    #  0   Owes $0.00
+(I)nventory, (A)dd, (R)emove, (P)ayment, (M)onth, e(X)it : x
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E8AD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Use of uninitialised value of size 8
+==9134==    at 0x48CC2EB: _itoa_word (_itoa.c:177)
+==9134==    by 0x48E7ABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CC2FC: _itoa_word (_itoa.c:177)
+==9134==    by 0x48E7ABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E85C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48E7C05: __vfprintf_internal (vfprintf-internal.c:1516)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CCCB8: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CCCD2: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48C850A: __mpn_extract_double (dbl2mpn.c:56)
+==9134==    by 0x48CCFCE: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48C850F: __mpn_extract_double (dbl2mpn.c:60)
+==9134==    by 0x48CCFCE: __printf_fp_l (printf_fp.c:396)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CD9B0: __printf_fp_l (printf_fp.c:978)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CD9EA: __printf_fp_l (printf_fp.c:981)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDA24: __printf_fp_l (printf_fp.c:991)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDA58: round_away (rounding-mode.h:52)
+==9134==    by 0x48CDA58: __printf_fp_l (printf_fp.c:998)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDCD5: __printf_fp_l (printf_fp.c:1166)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDF15: __printf_fp_l (printf_fp.c:1228)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x48CDEFB: __printf_fp_l (printf_fp.c:1230)
+==9134==    by 0x48E892C: __printf_fp_spec (vfprintf-internal.c:354)
+==9134==    by 0x48E892C: __vfprintf_internal (vfprintf-internal.c:1558)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Conditional jump or move depends on uninitialised value(s)
+==9134==    at 0x484ED19: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9134==    by 0x48E8D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x10969E: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+==9134== Syscall param write(buf) points to uninitialised byte(s)
+==9134==    at 0x4986887: write (write.c:26)
+==9134==    by 0x48FCEEC: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==9134==    by 0x48FE9E0: new_do_write (fileops.c:448)
+==9134==    by 0x48FE9E0: _IO_new_do_write (fileops.c:425)
+==9134==    by 0x48FE9E0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==9134==    by 0x48FDFD7: _IO_file_close_it@@GLIBC_2.2.5 (fileops.c:135)
+==9134==    by 0x48F0D8E: fclose@@GLIBC_2.2.5 (iofclose.c:53)
+==9134==    by 0x1097EE: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==  Address 0x4aa0472 is 162 bytes inside a block of size 4,096 alloc'd
+==9134==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9134==    by 0x48F0BA3: _IO_file_doallocate (filedoalloc.c:101)
+==9134==    by 0x48FFCDF: _IO_doallocbuf (genops.c:347)
+==9134==    by 0x48FEF5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==9134==    by 0x48FD6D4: _IO_new_file_xsputn (fileops.c:1243)
+==9134==    by 0x48FD6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==9134==    by 0x48E900B: outstring_func (vfprintf-internal.c:239)
+==9134==    by 0x48E900B: __vfprintf_internal (vfprintf-internal.c:1517)
+==9134==    by 0x48D26C9: fprintf (fprintf.c:32)
+==9134==    by 0x109707: saveBoatsToFile (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134==    by 0x10A3DA: main (in /home/auxport/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex/boatManager)
+==9134== 
+Exiting the Boat Management System
+==9134== 
+==9134== HEAP SUMMARY:
+==9134==     in use at exit: 0 bytes in 0 blocks
+==9134==   total heap usage: 13 allocs, 13 frees, 12,360 bytes allocated
+==9134== 
+==9134== All heap blocks were freed -- no leaks are possible
+==9134== 
+==9134== Use --track-origins=yes to see where uninitialised values come from
+==9134== For lists of detected and suppressed errors, rerun with: -s
+==9134== ERROR SUMMARY: 105 errors from 37 contexts (suppressed: 0 from 0)
+[?2004h]0;auxport@auxport: ~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[01;32mauxport@auxport[00m:[01;34m~/Documents/CSC/CSC322/programming-assignment-submissions/programming-assignment-KdimAlex[00m$ exit
+[?2004l
+exit
+
+Script done on 2024-11-04 15:51:13-05:00 [COMMAND_EXIT_CODE="0"]
